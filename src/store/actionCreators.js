@@ -1,4 +1,4 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
+import { GET_MY_LIST, CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
 import axios from "axios";
 
 // 创建多个actions
@@ -16,5 +16,12 @@ export const getTodoListAction = () => {
       dispatch(action);
       //   console.log(data);
     });
+  };
+};
+
+// redux-thunk的里面编写请求的后台数据 (里面可以返回是一个对象)
+export const getMyListAction = () => {
+  return {
+    type: GET_MY_LIST,
   };
 };

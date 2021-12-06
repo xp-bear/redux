@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import "antd/dist/antd.css";
 import store from "./store";
-import { changeInputAction, addItemAction, deleteItemAction, getTodoListAction } from "./store/actionCreators";
+import { getMyListAction, changeInputAction, addItemAction, deleteItemAction } from "./store/actionCreators";
 import TodoListUl from "./TodoListUl";
 
 export class TodoList extends PureComponent {
@@ -26,9 +26,12 @@ export class TodoList extends PureComponent {
     // axios.get(`http://123.207.32.32:9001/toplist/detail`).then((res) => {
     //   console.log(res.data);
     // });
+    // const action = getTodoListAction();
+    // store.dispatch(action); // 请求数据
 
-    const action = getTodoListAction();
-    store.dispatch(action); // 请求数据
+    // redux-saga的使用
+    const action = getMyListAction();
+    store.dispatch(action);
   }
 
   // 表达值的改变
