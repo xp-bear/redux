@@ -13,7 +13,7 @@ const TodoListUl = (props) => {
         </Button>
       </div>
       <div style={{ margin: "10px", width: "300px" }}>
-        <List bordered dataSource={props.list} renderItem={(item, index) => <List.Item onClick={() => props.deleteltem(index)}>{item}</List.Item>}></List>
+        <List bordered dataSource={props.list} renderItem={(item, index) => <List.Item onClick={() => props.deleteltem(index)}>{item.description}</List.Item>}></List>
       </div>
     </div>
   );

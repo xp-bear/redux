@@ -1,12 +1,8 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./actionTypes";
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
 
 const defaultState = {
   inputValue: "Write Something",
-  list: [
-    "早8点开晨会,分配今天的代码任务",
-    "早9点和项目经理开需求沟通会",
-    "晚5点组织人员进行Review代码",
-  ],
+  list: [],
 };
 
 const reducer = (state = defaultState, action) => {
@@ -31,6 +27,12 @@ const reducer = (state = defaultState, action) => {
     return newState;
   }
 
+  // 列表的渲染
+  if (action.type === GET_LIST) {
+    let newState = JSON.parse(JSON.stringify(state));
+    newState.list = action.data;
+    return newState;
+  }
   return state;
 };
 
